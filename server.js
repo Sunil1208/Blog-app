@@ -12,6 +12,9 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(passport.initialize());
 require('./middleware/passport')(passport);
 
+app.use('/api/users', require('./routes/api/user'));
+app.use('/api/posts',require('./routes/api/post'));
+
 const MONGO_URI = process.env.MONGO_URI;
 
 mongoose.connect(MONGO_URI,
