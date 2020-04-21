@@ -3,12 +3,14 @@ require('dotenv').config(); //for loading the environment
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 5000;
 const mongoose = require('mongoose');
+const passport = require('passport')
 
 const app = express();
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:false}));
-
+app.use(passport.initialize());
+require('./middleware/passport')(passport);
 
 const MONGO_URI = process.env.MONGO_URI;
 
