@@ -19,7 +19,8 @@ const MONGO_URI = process.env.MONGO_URI;
 
 mongoose.connect(MONGO_URI,
     {useNewUrlParser:true,
-    useUnifiedTopology:true},(err)=>{
+    useUnifiedTopology:true,
+    useFindAndModify:false},(err)=>{
         if(err){
             return    console.log(`Unable to connect to the database!!! with the error ${err}`)
         }
