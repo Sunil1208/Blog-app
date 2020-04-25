@@ -12,8 +12,8 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(passport.initialize());
 require('./middleware/passport')(passport);
 
-app.use('/api/users', require('./routes/api/user'));
-app.use('/api/posts',require('./routes/api/post'));
+app.use('/api/users', require('./routes/api/users'));
+app.use('/api/posts',require('./routes/api/posts'));
 
 const MONGO_URI = process.env.MONGO_URI;
 
@@ -28,9 +28,9 @@ mongoose.connect(MONGO_URI,
 
     })
 
-app.get("/", (req, res) => {
-  res.send("hello");
-});
+// app.get("/", (req, res) => {
+//   res.send("hello");
+// });
 
 app.post("/user", (req, res) => {
     console.log(req.body);
