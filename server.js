@@ -1,7 +1,7 @@
 const express = require("express");
 require('dotenv').config(); //for loading the environment
 const bodyParser = require('body-parser');
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT
 const mongoose = require('mongoose');
 const passport = require('passport')
 
